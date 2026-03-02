@@ -1,0 +1,31 @@
+body {
+    background-color: #fff3e6;
+    font-family: Arial;
+}
+
+h1 {
+    color: darkorange;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff8f0;
+}
+
+th {
+    background-color: orange;
+    color: white;
+    padding: 8px;
+}
+
+td {
+    padding: 6px;
+    text-align: center;
+}
+
+.product-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}

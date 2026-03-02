@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cosmetic Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Cosmetic Offers Tracker</h1>
+<form method="POST">
+    <select name="product">
+        <option value="lipstick">Lipstick</option>
+        <option value="foundation">Foundation</option>
+        <option value="maybelline">Maybelline</option>
+        <option value="lakme">Lakme</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+{% if data is not none and not data.empty %}
+<table>
+    <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Website</th>
+        <th>Category</th>
+        <th>Original Price</th>
+        <th>Offer Price</th>
+        <th>Date</th>
+    </tr>
+
+    {% for row in data.itertuples() %}
+    <tr>
+        <td>
+            <img src="{{ row.Image }}" class="product-img">
+        </td>
+        <td>{{ row.Product }}</td>
+        <td>{{ row.Website }}</td>
+        <td>{{ row.Category }}</td>
+        <td>₹ {{ row._4 }}</td>
+        <td>₹ {{ row._5 }}</td>
+        <td>{{ row.Date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No data found</p>
+{% endif %}
+
+</body>
+</html>
